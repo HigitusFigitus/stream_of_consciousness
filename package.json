@@ -1,0 +1,23 @@
+{
+  "name": "stream_of_consciousness",
+  "version": "1.0.0",
+  "description": "A stream of anonymous thoughts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HigitusFigitus/stream_of_consciousness.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HigitusFigitus/stream_of_consciousness/issues"
+  },
+  "homepage": "https://github.com/HigitusFigitus/stream_of_consciousness#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
