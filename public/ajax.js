@@ -1,5 +1,5 @@
 $.ajax({
-  type: "/GET",
+  type: "GET",
   url: "/thoughts",
   success: function(data){
     for(var i = 0; i < data.thoughts.length; i += 1){
@@ -9,5 +9,19 @@ $.ajax({
 });
 
 function prependNewThought(thought){
-  ("#thoughts-target").prepend(thought);
+  var newThought = thought.text
+  $("#thoughts-target").prepend(newThought);
 }
+
+$("#thought").click(function(){
+  $.ajax({
+    type: "POST",
+    url: "/thoughts",
+    contentType: "application/json",
+    data: JSON.stringify({thought: $("#new-thought").val()}),
+    success: function(data){
+      prependNewThought(data);
+      $("#new-thought").val("");
+    }
+  })
+});
