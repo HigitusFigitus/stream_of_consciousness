@@ -3,10 +3,6 @@ var app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-app.listen(port, () => {
-  console.log("Server listening on port " + port);
-})
-
 var thoughts = [
   {text: "First thought", time: "First time"},
   {text: "Second thought", time: "Second time"}
@@ -19,3 +15,12 @@ app.get("/thoughts", function(request, response){
   response.type("json");
   response.end(JSON.stringify({thoughts:thoughts}));
 });
+
+app.post("/thoughts", function(request, response){
+  var newThought = {text: request.body.thought, time: new Date().getTime()};
+thoughts.push(newThought);
+response.type("json");
+response.end(JSON.stringify(newThought));
+});
+
+var server = app.listen(8080);
