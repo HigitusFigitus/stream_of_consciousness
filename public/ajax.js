@@ -23,5 +23,5 @@ $("#thought").click(function(){
       prependNewThought(data);
       $("#new-thought").val("");
     }
-  })
+  });
 });
