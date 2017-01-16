@@ -9,8 +9,8 @@ $.ajax({
 });
 
 function prependNewThought(thought){
-  var newThought = "<div class='thought-body'>" + thought.text + "</div>"
-  $("#thoughts-target").prepend(newThought);
+  var newThought = "<li class='collection-item'>" + thought.text + "</li>"
+  $(".collection").prepend(newThought);
 }
 
 $("#thought").click(function(){
@@ -19,9 +19,15 @@ $("#thought").click(function(){
     url: "/thoughts",
     contentType: "application/json",
     data: JSON.stringify({thought: $("#new-thought").val()}),
-    success: function(data){
-      prependNewThought(data);
+    success: function(response){
+      console.log("Ajax request successful");
+      var parsedResponse = JSON.parse(response);
+      var newThought = "<li class='collection-item'>" + parsedResponse.text + "</li>"
+      $(".collection").prepend(newThought);
       $("#new-thought").val("");
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown){
+     console.log("Ajax request unsuccessful");
     }
   });
 });
