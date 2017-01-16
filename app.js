@@ -2,25 +2,32 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var thoughts = [
-  {text: "First thought", time: "First time"},
-  {text: "Second thought", time: "Second time"}
-];
+var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost:27017/thoughts");
+
+var thoughtSchema = new mongoose.Schema({
+    text: String
+});
+
+var Thought = mongoose.model("Thought", thoughtSchema);
 
 app.use(express.static(__dirname + "/public"));
 
-// JSON.stringify turns a Javascript object into JSON text and stores that JSON text in a string.
 app.get("/thoughts", function(request, response){
-  response.type("json");
-  response.end(JSON.stringify({thoughts:thoughts}));
+  Thought.find(function(err, thoughts){
+    if (err) return console.error(err);
+    console.log(thoughts);
+    response.type("json");
+    response.end(JSON.stringify({thoughts:thoughts}));
+  });
 });
 
 app.post("/thoughts", function(request, response){
-  var newThought = {text: request.body.thought, time: new Date().getTime()};
-thoughts.push(newThought);
-response.type("json");
-response.end(JSON.stringify(newThought));
+  var newThought = new Thought({text: request.body.thought});
+    newThought.save();
 });
 
 var server = app.listen(8080);
