@@ -9,7 +9,7 @@ $.ajax({
 });
 
 function prependNewThought(thought){
-  var newThought = thought.text
+  var newThought = "<div class='thought-body'>" + thought.text + "</div>"
   $("#thoughts-target").prepend(newThought);
 }
 

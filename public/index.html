@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stream of Consciousness</title>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <h1 class="title">stream of consciousness</h1>
+  <section class='navbar'>
+    <h1>stream of consciousness</h1>
+  </section>
 
   <div class="stream-container">
-    <input placeholder=". . ." type="text" class="new-thought-input" id="new-thought">
+    <input type="text" class="new-thought-input" id="new-thought">
     <button class="btn-thought" id="thought">add a thought</button>
   </div>
 
   <div class="thoughts" id="thoughts-target">
-
   </div>
 
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.js"></script>
   <script src="ajax.js"></script>
 </body>
 </html>
