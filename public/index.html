@@ -8,21 +8,21 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type='text/css'>
+  <!--Import custom css-->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <section class='navbar'>
-    <h1>stream of consciousness</h1>
-  </section>
+  <div class="container">
 
-  <div class="stream-container">
+    <h1 class="card-panel blue lighten-1 flow-text">stream of consciousness <i class="small material-icons right">invert_colors</i></h1>
     <input type="text" class="new-thought-input" id="new-thought">
-    <button class="btn-thought" id="thought">add a thought</button>
-  </div>
+    <button id="thought" class="waves-effect waves-light teal accent-4 btn btn-thought">Add a thought</button>
 
-  <div class="thoughts" id="thoughts-target">
+    <ul class="collection">
+
+    </ul>
+
   </div>
 
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -30,3 +30,6 @@
   <script src="ajax.js"></script>
 </body>
 </html>
+
+
+
