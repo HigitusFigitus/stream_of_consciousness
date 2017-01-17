@@ -1,6 +1,6 @@
 # stream of consciousness
 
-> Minimal app that allows to add a thought to a collective stream of anonymous thoughts, which are displayed in reverse chronological order.
+> A minimal app that lets you add a thought to a collective stream of anonymous thoughts, which are displayed in reverse chronological order.
 
 ## Table of Contents
 
