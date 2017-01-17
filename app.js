@@ -19,7 +19,6 @@ app.use(express.static(__dirname + "/public"));
 app.get("/thoughts", function(request, response){
   Thought.find(function(err, thoughts){
     if (err) return console.error(err);
-    console.log(thoughts);
     response.type("json");
     response.end(JSON.stringify({thoughts:thoughts}));
   });
@@ -28,6 +27,7 @@ app.get("/thoughts", function(request, response){
 app.post("/thoughts", function(request, response){
   var newThought = new Thought({text: request.body.thought});
     newThought.save();
+    response.end(JSON.stringify(newThought));
 });
 
 var server = app.listen(8080);
